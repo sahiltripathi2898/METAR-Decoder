@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>METAR</title>
+  </head>
+  <body>
+    <div style="text-align: center; margin-top:10px; margin-bottom: 40px;">
+      <h2>METAR Decoder</h2>
+    </div>
+    <div style="margin:10px; text-align: center;">
+      <textarea id="input" style="width:50%; height:100px"></textarea>
+    </div>
+    <div style="margin:10px;text-align: center;">
+      <input type="button" id="button" value="Decode"/>
+    </div>
+    <div style="margin:10px; text-align: center;">
+      <textarea id="output" style="width:50%; height:500px"></textarea>
+    </div>
+    <script src="./metar.js"></script>
+    <script>
+
+      document.getElementById("button").addEventListener("click",(event) => {
+        event.preventDefault();
+        var message = document.getElementById("input").value;
+        var metar = parseMetarCodes(message);
+  
+        if(!!metar)
+        {
+          document.getElementById("output").value=JSON.stringify(metar,null,4);
+        }
+        else 
+        {
+          document.getElementById("output").innerHTML="Error";
+        }
+        
+      });
+  </script>
+  </body>
+  
+</html>
+
