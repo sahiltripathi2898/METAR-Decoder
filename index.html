@@ -20,12 +20,12 @@
 
       document.getElementById("button").addEventListener("click",(event) => {
         event.preventDefault();
-        var message = document.getElementById("input").value;
-        var metar = parseMetarCodes(message);
+        var message = document.getElementById("input").value; // Grab the input element
+        var metar = parseMetarCodes(message);                 // call the decoder
   
         if(!!metar)
         {
-          document.getElementById("output").value=JSON.stringify(metar,null,4);
+          document.getElementById("output").value=JSON.stringify(metar,null,8);
         }
         else 
         {
